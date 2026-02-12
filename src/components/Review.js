@@ -16,14 +16,14 @@ const Review = () => {
   
    function handlePrev(){ 
         if(currentIndex == 0){
-                return;
+             setCurrentIndex(Reviews.length)
         } 
         setCurrentIndex(currentIndex => currentIndex - 1 )
      }
 
    function handleNext(){ 
-      if(currentIndex == Reviews.length - 1){
-                return;
+      if(currentIndex == Reviews.length-1){
+             setCurrentIndex(Reviews.length-Reviews.length-1)  
         } 
         setCurrentIndex(currentIndex => currentIndex + 1 )
      }
