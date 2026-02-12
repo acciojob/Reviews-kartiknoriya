@@ -3,11 +3,13 @@ import Review from "./Review";
 
 const App = () => {
   return (
-    <main>
-      <section className="container" title="Our Reviews" id="review-heading">
-        <Review />
-      </section>
-    </main>
+   <main>
+   <section className="container">
+      <h2 id="review-heading">Our Reviews</h2>
+      <Review />
+   </section>
+</main>
+
   );
 };
 

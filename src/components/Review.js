@@ -9,7 +9,7 @@ const Review = () => {
    const { id,name, job, image, text } = Reviews[currentIndex]
    
    function handleSuprise(){
-      const random = Math.floor(Math.random() * 3);
+      const random = Math.floor(Math.random() * Reviews.length);
        console.log( 'random ',random)
           setCurrentIndex(currentIndex => currentIndex = random)
    }
@@ -22,7 +22,7 @@ const Review = () => {
      }
 
    function handleNext(){ 
-      if(currentIndex == 3){
+      if(currentIndex == Reviews.length - 1){
                 return;
         } 
         setCurrentIndex(currentIndex => currentIndex + 1 )
@@ -31,21 +31,17 @@ const Review = () => {
   return (
      <>
        <div className="review"> 
-         
-         <h2  id="review-heading"> Our Reviews </h2>
-        <p className='author' author-id={id} >Name : {name}</p>
+      
+        <p className='author' id={`author-${id}`} >Name : {name}</p>
         <p className='job' >job  : {job}</p>
         <p className='info'>text  : {text}</p>
         <div className="image-container" > <img className="person-img" src={image}></img></div>
         
+             <button className='prev-btn' onClick={()=>handlePrev()}>Previous</button>
+             <button className='next-btn' onClick={() => handleNext()}>Next</button>
+             <button className='random-btn' onClick={() =>handleSuprise()}>surprise me</button>
         </div> 
        
-        <div>
-            
-             <button className='prev-btn' onClick={()=>handlePrev()}>Previous</button>
-             <button className=' next-btn' onClick={() => handleNext()}>Next</button>
-             <button className='random-btn' onClick={() =>handleSuprise()}>surprise me</button>
-        </div>
      </>
 
   )
